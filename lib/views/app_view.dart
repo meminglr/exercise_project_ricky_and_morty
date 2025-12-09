@@ -1,13 +1,19 @@
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 
 class AppView extends StatelessWidget {
-  const AppView({super.key});
+  final StatefulNavigationShell navigationShell;
+
+  const AppView({super.key, required this.navigationShell});
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: _appBarWidget(),
+      body: navigationShell,
       bottomNavigationBar: NavigationBar(
+        selectedIndex: navigationShell.currentIndex,
+        onDestinationSelected: navigationShell.goBranch,
         destinations: [
           NavigationDestination(
             icon: Icon(Icons.face_outlined),
@@ -19,7 +25,7 @@ class AppView extends StatelessWidget {
           ),
           NavigationDestination(
             icon: Icon(Icons.location_on_outlined),
-            label: "Settings",
+            label: "Locations",
           ),
           NavigationDestination(
             icon: Icon(Icons.menu_outlined),
