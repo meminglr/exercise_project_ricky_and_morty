@@ -1,6 +1,7 @@
 import 'package:flex_color_scheme/flex_color_scheme.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+
 /// The [AppTheme] defines light and dark themes for the app.
 ///
 /// Theme setup for FlexColorScheme package v8.
@@ -18,8 +19,6 @@ import 'package:flutter/material.dart';
 abstract final class AppTheme {
   // The FlexColorScheme defined light mode ThemeData.
   static ThemeData light = FlexThemeData.light(
-    
-    
     // Using FlexColorScheme built-in FlexScheme enum based colors
     scheme: FlexScheme.aquaBlue,
     // Input color modifiers.
@@ -28,7 +27,6 @@ abstract final class AppTheme {
     appBarStyle: FlexAppBarStyle.scaffoldBackground,
     // Component theme configurations for light mode.
     subThemesData: const FlexSubThemesData(
-      
       interactionEffects: true,
       tintedDisabledControls: true,
       useM2StyleDividerInM3: true,
@@ -44,6 +42,7 @@ abstract final class AppTheme {
       inputDecoratorUnfocusedHasBorder: false,
       inputDecoratorFocusedBorderWidth: 1.0,
       inputDecoratorPrefixIconSchemeColor: SchemeColor.onPrimaryFixedVariant,
+      cardElevation: 0.0,
       alignedDropdown: true,
       appBarScrolledUnderElevation: 0.0,
       appBarCenterTitle: true,
@@ -56,7 +55,6 @@ abstract final class AppTheme {
       navigationRailLabelType: NavigationRailLabelType.all,
     ),
     // Direct ThemeData properties.
-    
     visualDensity: FlexColorScheme.comfortablePlatformDensity,
     cupertinoOverrideTheme: const CupertinoThemeData(applyThemeToAll: true),
   );
@@ -86,6 +84,7 @@ abstract final class AppTheme {
       inputDecoratorUnfocusedHasBorder: false,
       inputDecoratorFocusedBorderWidth: 1.0,
       inputDecoratorPrefixIconSchemeColor: SchemeColor.primaryFixed,
+      cardElevation: 0.0,
       alignedDropdown: true,
       appBarScrolledUnderElevation: 0.0,
       appBarCenterTitle: true,
