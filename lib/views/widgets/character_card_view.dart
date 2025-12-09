@@ -1,20 +1,11 @@
 import 'package:flutter/material.dart';
 
-class CharacterCardView extends StatelessWidget {
-  final String imageUrl;
-  final String name;
-  final String origin;
-  final String status;
-  final String type;
+import '../../models/characters_model.dart';
 
-  const CharacterCardView({
-    super.key,
-    required this.imageUrl,
-    required this.name,
-    required this.origin,
-    required this.status,
-    required this.type,
-  });
+class CharacterCardView extends StatelessWidget {
+  final CharacterModel characterModel;
+
+  const CharacterCardView({super.key, required this.characterModel});
 
   @override
   Widget build(BuildContext context) {
@@ -26,10 +17,18 @@ class CharacterCardView extends StatelessWidget {
           child: Row(
             crossAxisAlignment: CrossAxisAlignment.center,
             children: [
-              Flexible(flex: 4, child: _characterImageWidget(imageUrl)),
+              Flexible(
+                flex: 4,
+                child: _characterImageWidget(characterModel.image),
+              ),
               Flexible(
                 flex: 6,
-                child: _characterInfoWidget(name, origin, status, type),
+                child: _characterInfoWidget(
+                  characterModel.name,
+                  characterModel.origin.name,
+                  characterModel.status,
+                  characterModel.species,
+                ),
               ),
             ],
           ),
